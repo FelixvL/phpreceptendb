@@ -65,3 +65,20 @@ while($rij = $rs->fetch_assoc()){
 }
 
 ?>
+<h1 id="welkom"></h1>
+<script>
+let gebid = localStorage.getItem("vandieenesite");
+console.log(gebid);   
+if(gebid == null || gebid == "null"){
+    alert("jij moet ff inloggen");
+    window.location = "inloggen.php";
+} else{
+    document.getElementById("welkom").innerHTML = "welkom "+ gebid;
+}
+function uitloggen(){
+    localStorage.setItem("vandieenesite", null );
+    window.location = window.location;
+}    
+</script>
+<button onclick=uitloggen()>uitloggen</button>
+
